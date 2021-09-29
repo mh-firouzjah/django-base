@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
-from decouple import Csv, config
+from decouple import Csv
+from decouple import config
 from dj_database_url import parse as db_url
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
@@ -70,7 +71,7 @@ MIDDLEWARE = [
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -105,18 +106,18 @@ DATABASES = {
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+     },
+    {'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
+     },
+    {'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
+     },
+    {'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
+     },
 ]
 
 
@@ -144,6 +145,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
