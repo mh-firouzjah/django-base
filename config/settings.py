@@ -12,8 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
-from decouple import Csv
-from decouple import config
+from decouple import Csv, config
 from dj_database_url import parse as db_url
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _

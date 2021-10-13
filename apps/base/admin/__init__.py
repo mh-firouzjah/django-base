@@ -1,3 +1,6 @@
+'''
+customizing django admin panel and add site title and headers
+'''
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 
